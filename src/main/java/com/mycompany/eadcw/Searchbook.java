@@ -4,6 +4,11 @@
  */
 package com.mycompany.eadcw;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SKYLINE
@@ -30,8 +35,8 @@ public class Searchbook extends javax.swing.JFrame {
         bookIdTxtSerch = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         bookNametxtsearch = new javax.swing.JTextField();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        SearchBtn = new javax.swing.JToggleButton();
+        CloseBtn = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         bookAuthortxtsearch = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -55,17 +60,17 @@ public class Searchbook extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton2.setText("Search");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        SearchBtn.setText("Search");
+        SearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                SearchBtnActionPerformed(evt);
             }
         });
 
-        jToggleButton3.setText("close");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        CloseBtn.setText("close");
+        CloseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                CloseBtnActionPerformed(evt);
             }
         });
 
@@ -111,8 +116,8 @@ public class Searchbook extends javax.swing.JFrame {
                             .addComponent(bookNametxtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CloseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -122,10 +127,10 @@ public class Searchbook extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bookIdTxtSerch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CloseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bookNametxtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,13 +157,42 @@ public class Searchbook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bookNametxtsearchActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void SearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+       try {
+            int bookID = Integer.parseInt(this.bookIdTxtSerch.getText());
+            try (Connection conn = Eadcw.getConnection()) {
+                String sql = "SELECT * FROM Books WHERE BookID = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    stmt.setInt(1, bookID);
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+                    try (ResultSet rs = stmt.executeQuery()) {
+                        if (rs.next()) {
+                            // Extract book details
+                            String title = rs.getString("Title");
+                            String author = rs.getString("Author");
+                            String category = rs.getString("Category");
+
+                            this.bookNametxtsearch.setText(title);
+                            this.bookAuthortxtsearch.setText(author);
+                            this.bookCategoretxtsearch.setText(category);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Book ID not found.", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Book ID must be an integer.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_SearchBtnActionPerformed
+
+    private void CloseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+        this.hide();
+    }//GEN-LAST:event_CloseBtnActionPerformed
 
     private void bookAuthortxtsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookAuthortxtsearchActionPerformed
         // TODO add your handling code here:
@@ -204,6 +238,8 @@ public class Searchbook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton CloseBtn;
+    private javax.swing.JToggleButton SearchBtn;
     private javax.swing.JTextField bookAuthortxtsearch;
     private javax.swing.JTextField bookCategoretxtsearch;
     private javax.swing.JTextField bookIdTxtSerch;
@@ -212,7 +248,5 @@ public class Searchbook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     // End of variables declaration//GEN-END:variables
 }

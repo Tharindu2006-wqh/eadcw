@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConnectionPool {
 
-    private static final String URL = "jdbc:mysql://database1.cj2cyusy40x9.us-east-2.rds.amazonaws.com:3306/eadcw";
+    private static final String URL = "jdbc:mysql://database1.cj2cyusy40x9.us-east-2.rds.amazonaws.com:3306/tharindu";
     private static final String USER = "devrious";
     private static final String PASSWORD = "Devrious_45";
 

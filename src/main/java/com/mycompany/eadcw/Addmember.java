@@ -4,6 +4,13 @@
  */
 package com.mycompany.eadcw;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author SKYLINE
@@ -29,8 +36,8 @@ public class Addmember extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        studentNameTaxt = new javax.swing.JTextField();
-        studentIdTxt = new javax.swing.JTextField();
+        studentIDText = new javax.swing.JTextField();
+        studentNameText = new javax.swing.JTextField();
         savebottonaddMember = new javax.swing.JToggleButton();
         colsebottonaddmember = new javax.swing.JToggleButton();
 
@@ -42,19 +49,19 @@ public class Addmember extends javax.swing.JFrame {
 
         setTitle("Add Member");
 
-        jLabel2.setText("Student Name");
+        jLabel2.setText("Student ID");
 
-        jLabel3.setText("Student ID");
+        jLabel3.setText("Student Name");
 
-        studentNameTaxt.addActionListener(new java.awt.event.ActionListener() {
+        studentIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentNameTaxtActionPerformed(evt);
+                studentIDTextActionPerformed(evt);
             }
         });
 
-        studentIdTxt.addActionListener(new java.awt.event.ActionListener() {
+        studentNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentIdTxtActionPerformed(evt);
+                studentNameTextActionPerformed(evt);
             }
         });
 
@@ -77,60 +84,103 @@ public class Addmember extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(studentNameTaxt, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(studentIdTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(savebottonaddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(colsebottonaddmember, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(colsebottonaddmember, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentNameText)
+                    .addComponent(studentIDText))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(studentNameTaxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(studentIDText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(studentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(studentNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(savebottonaddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(colsebottonaddmember, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void studentNameTaxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameTaxtActionPerformed
+    private void studentIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIDTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_studentNameTaxtActionPerformed
+    }//GEN-LAST:event_studentIDTextActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void studentIdTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentIdTxtActionPerformed
+    private void studentNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_studentIdTxtActionPerformed
+    }//GEN-LAST:event_studentNameTextActionPerformed
 
     private void savebottonaddMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebottonaddMemberActionPerformed
         // TODO add your handling code here:
+        try {
+            // Retrieve book details from text fields
+            String stID = this.studentIDText.getText();
+            String stName = this.studentNameText.getText();
+
+            // Check if any required fields are empty
+            if (stID.isEmpty() || stName.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in all the fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                try (Connection conn = Eadcw.getConnection()) {
+                    // SQL query to insert a new book
+                    String sql = "INSERT INTO students (student_id, student_name) VALUES (?, ?)";
+                    try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                        // Set the values for the prepared statement
+                        stmt.setString(1, stID);
+                        stmt.setString(2, stName);
+
+                        // Execute the update
+                        int rowsAffected = stmt.executeUpdate();
+                        if (rowsAffected > 0) {
+                            // Retrieve the generated BookID
+                            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                                if (generatedKeys.next()) {
+                                    JOptionPane.showMessageDialog(null, "Student added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Failed to add the Student.", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+            }
+        } catch (SQLException sqlEx) {
+            // Handle SQL exceptions, including unique constraint violations
+            if (sqlEx.getSQLState().startsWith("23")) { // Adjust based on your DB's unique constraint error code
+                JOptionPane.showMessageDialog(null, "Student ID already exists. Please use a unique ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "A database error occurred: " + sqlEx.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "An error occurred while adding the Student.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_savebottonaddMemberActionPerformed
 
     private void colsebottonaddmemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colsebottonaddmemberActionPerformed
         // TODO add your handling code here:
+        this.hide();
     }//GEN-LAST:event_colsebottonaddmemberActionPerformed
 
     /**
@@ -174,7 +224,7 @@ public class Addmember extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton savebottonaddMember;
-    private javax.swing.JTextField studentIdTxt;
-    private javax.swing.JTextField studentNameTaxt;
+    private javax.swing.JTextField studentIDText;
+    private javax.swing.JTextField studentNameText;
     // End of variables declaration//GEN-END:variables
 }

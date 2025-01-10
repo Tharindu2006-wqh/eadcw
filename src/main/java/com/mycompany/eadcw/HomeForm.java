@@ -27,8 +27,8 @@ public class HomeForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        homeClosepage = new javax.swing.JMenu();
-        closetxt = new javax.swing.JMenu();
+        homeMenu = new javax.swing.JMenu();
+        closeMenuItem = new javax.swing.JMenuItem();
         deleteMemberMenu = new javax.swing.JMenu();
         addMemberMenu = new javax.swing.JMenuItem();
         deleteMemberemenu = new javax.swing.JMenuItem();
@@ -46,21 +46,21 @@ public class HomeForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Library management system");
 
-        homeClosepage.setText("Home");
+        homeMenu.setText("Home");
 
-        closetxt.setText("close");
-        closetxt.addActionListener(new java.awt.event.ActionListener() {
+        closeMenuItem.setText("Close");
+        closeMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closetxtActionPerformed(evt);
+                closeMenuItemActionPerformed(evt);
             }
         });
-        homeClosepage.add(closetxt);
+        homeMenu.add(closeMenuItem);
 
-        jMenuBar1.add(homeClosepage);
+        jMenuBar1.add(homeMenu);
 
         deleteMemberMenu.setText("Members");
 
-        addMemberMenu.setText("Add member ");
+        addMemberMenu.setText("Add Member ");
         addMemberMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addMemberMenuActionPerformed(evt);
@@ -68,7 +68,7 @@ public class HomeForm extends javax.swing.JFrame {
         });
         deleteMemberMenu.add(addMemberMenu);
 
-        deleteMemberemenu.setText("Delete member");
+        deleteMemberemenu.setText("Delete Member");
         deleteMemberemenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteMemberemenuActionPerformed(evt);
@@ -88,7 +88,7 @@ public class HomeForm extends javax.swing.JFrame {
         });
         jMenu2.add(addBookmenu);
 
-        deleteBook.setText("Delete book");
+        deleteBook.setText("Delete Book");
         deleteBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBookActionPerformed(evt);
@@ -96,7 +96,7 @@ public class HomeForm extends javax.swing.JFrame {
         });
         jMenu2.add(deleteBook);
 
-        searchBook.setText("search book");
+        searchBook.setText("Search Book");
         searchBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBookActionPerformed(evt);
@@ -124,7 +124,7 @@ public class HomeForm extends javax.swing.JFrame {
         });
         jMenu6.add(bookReport);
 
-        memberReport.setText("member Report");
+        memberReport.setText("Member Report");
         memberReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 memberReportActionPerformed(evt);
@@ -136,7 +136,7 @@ public class HomeForm extends javax.swing.JFrame {
 
         jMenu7.setText("Settings");
 
-        changePassword.setText("change password");
+        changePassword.setText("Change Password");
         changePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changePasswordActionPerformed(evt);
@@ -210,10 +210,10 @@ public class HomeForm extends javax.swing.JFrame {
         f.show();
     }//GEN-LAST:event_changePasswordActionPerformed
 
-    private void closetxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closetxtActionPerformed
+    private void closeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeMenuItemActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_closetxtActionPerformed
+    }//GEN-LAST:event_closeMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,12 +255,12 @@ public class HomeForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem addMemberMenu;
     private javax.swing.JMenuItem bookReport;
     private javax.swing.JMenuItem changePassword;
-    private javax.swing.JMenu closetxt;
+    private javax.swing.JMenuItem closeMenuItem;
     private javax.swing.JMenuItem deleteBook;
     private javax.swing.JMenu deleteMemberMenu;
     private javax.swing.JMenuItem deleteMemberemenu;
     private javax.swing.JMenuItem fineReport;
-    private javax.swing.JMenu homeClosepage;
+    private javax.swing.JMenu homeMenu;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;

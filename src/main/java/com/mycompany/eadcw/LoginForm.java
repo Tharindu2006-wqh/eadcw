@@ -11,7 +11,6 @@ package com.mycompany.eadcw;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 public class LoginForm extends javax.swing.JFrame {
 

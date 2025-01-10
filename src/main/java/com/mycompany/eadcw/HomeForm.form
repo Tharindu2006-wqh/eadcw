@@ -4,19 +4,19 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="homeClosepage">
+        <Menu class="javax.swing.JMenu" name="homeMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Home"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="closetxt">
+            <MenuItem class="javax.swing.JMenuItem" name="closeMenuItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="close"/>
+                <Property name="text" type="java.lang.String" value="Close"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closetxtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeMenuItemActionPerformed"/>
               </Events>
-            </Menu>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="deleteMemberMenu">
@@ -26,7 +26,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="addMemberMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add member "/>
+                <Property name="text" type="java.lang.String" value="Add Member "/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addMemberMenuActionPerformed"/>
@@ -34,7 +34,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteMemberemenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete member"/>
+                <Property name="text" type="java.lang.String" value="Delete Member"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteMemberemenuActionPerformed"/>
@@ -57,7 +57,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteBook">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete book"/>
+                <Property name="text" type="java.lang.String" value="Delete Book"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBookActionPerformed"/>
@@ -65,7 +65,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="searchBook">
               <Properties>
-                <Property name="text" type="java.lang.String" value="search book"/>
+                <Property name="text" type="java.lang.String" value="Search Book"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBookActionPerformed"/>
@@ -96,7 +96,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="memberReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="member Report"/>
+                <Property name="text" type="java.lang.String" value="Member Report"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="memberReportActionPerformed"/>
@@ -111,7 +111,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="changePassword">
               <Properties>
-                <Property name="text" type="java.lang.String" value="change password"/>
+                <Property name="text" type="java.lang.String" value="Change Password"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changePasswordActionPerformed"/>
