@@ -58,9 +58,9 @@ public class HomeForm extends javax.swing.JFrame {
 
         jMenuBar1.add(homeMenu);
 
-        deleteMemberMenu.setText("Members");
+        deleteMemberMenu.setText("Students");
 
-        addMemberMenu.setText("Add Member ");
+        addMemberMenu.setText("Add Student");
         addMemberMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addMemberMenuActionPerformed(evt);
@@ -68,7 +68,7 @@ public class HomeForm extends javax.swing.JFrame {
         });
         deleteMemberMenu.add(addMemberMenu);
 
-        deleteMemberemenu.setText("Delete Member");
+        deleteMemberemenu.setText("Delete Student");
         deleteMemberemenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteMemberemenuActionPerformed(evt);

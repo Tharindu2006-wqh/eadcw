@@ -21,12 +21,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="deleteMemberMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Members"/>
+            <Property name="text" type="java.lang.String" value="Students"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="addMemberMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Member "/>
+                <Property name="text" type="java.lang.String" value="Add Student"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addMemberMenuActionPerformed"/>
@@ -34,7 +34,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="deleteMemberemenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Member"/>
+                <Property name="text" type="java.lang.String" value="Delete Student"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteMemberemenuActionPerformed"/>

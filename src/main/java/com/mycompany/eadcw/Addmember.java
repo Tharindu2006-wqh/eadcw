@@ -153,12 +153,7 @@ public class Addmember extends javax.swing.JFrame {
                         // Execute the update
                         int rowsAffected = stmt.executeUpdate();
                         if (rowsAffected > 0) {
-                            // Retrieve the generated BookID
-                            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
-                                if (generatedKeys.next()) {
-                                    JOptionPane.showMessageDialog(null, "Student added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                                }
-                            }
+                            JOptionPane.showMessageDialog(null, "Student added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                         } else {
                             JOptionPane.showMessageDialog(null, "Failed to add the Student.", "Error", JOptionPane.ERROR_MESSAGE);
                         }
