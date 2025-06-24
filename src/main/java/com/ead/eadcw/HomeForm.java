@@ -40,6 +40,7 @@ public class HomeForm extends javax.swing.JFrame {
     private void initComponents() {
 
         panel1 = new java.awt.Panel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         closeMenuItem = new javax.swing.JMenuItem();
@@ -70,6 +71,9 @@ public class HomeForm extends javax.swing.JFrame {
         setTitle("Library Manager");
         setMinimumSize(new java.awt.Dimension(500, 100));
         getContentPane().setLayout(new java.awt.CardLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mkt_public_library_a9dd768fad.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, "card2");
 
         fileMenu.setText("File");
 
@@ -227,6 +231,7 @@ public class HomeForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem fManageMenuItem;
     private javax.swing.JMenuItem fReportMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mManageMenuItem;
     private javax.swing.JMenu membersMenu;
